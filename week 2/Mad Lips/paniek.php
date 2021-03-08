@@ -1,3 +1,11 @@
+<?php 
+	if($_SERVER["REQUEST_METHOD"] == "POST"){
+		$message = true;
+	}
+	else{
+		$message = false;
+	}
+ ?>
 
 
 
@@ -17,6 +25,9 @@
 			</div>
 			<div id="formcontainer">	
 				<h2>Er heerst paniek...</h2>
+				<?php 
+					if(!$message){
+				?>
 				<form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="POST">
 					<label for="huisdier">Welk dier zou je het liefst als huisdier willen hebben?</label><span style="color: red;">*</span>
 					<input type="text" id="huisdier" name="huisdier" required><br><br>	
@@ -34,6 +45,14 @@
 					<input type="text" id="bezigheid" name="bezigheid" required><br><br>	
 					<input type="submit" value="Verzenden"><br><br>	
 				</form>
+				<?php 
+					}
+					else{
+				?>
+
+
+
+				<?php }	 ?>
 			</div>
 		</div>
 	</div>
